@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="UEC248 Ödev 3 — final projesi fikir önerisi oturumunun kuralları, belge başlıkları, örnekler, soru havuzu ve puanlama.">
+<meta name="author" content="Dr. Öğr. Üyesi Ersin Gündeğer">
+<style>
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>Fikir Önerisi Rehberi</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+</head>
+<body>
+<style>
+/* Düzen: tek sütunlu öğrenci rehberi; yapışkan bölüm çubuğu; şablon kâğıt yüzey olarak ayrışır. */
+:root{
+  --paper:#F2F2EE; --surface:#FBFAF7; --sheet:#FFFFFF;
+  --ink:#23261F; --ink-2:#5B6055; --ink-3:#878C7E;
+  --line:#D9D9D0; --line-soft:#E7E7E0;
+  --moss:#4C6136; --moss-soft:#E3E8D8;
+  --brick:#A3472A; --brick-soft:#F3E2DA;
+  --serif:"Source Serif 4", Charter, Georgia, serif;
+  --sans:"Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#191B17; --surface:#20231E; --sheet:#24271F;
+    --ink:#E9E8DF; --ink-2:#A8AC9C; --ink-3:#7E8374;
+    --line:#343828; --line-soft:#2B2E25;
+    --moss:#A3BC80; --moss-soft:#2B3324;
+    --brick:#DF8560; --brick-soft:#3A2820;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#191B17; --surface:#20231E; --sheet:#24271F;
+  --ink:#E9E8DF; --ink-2:#A8AC9C; --ink-3:#7E8374;
+  --line:#343828; --line-soft:#2B2E25;
+  --moss:#A3BC80; --moss-soft:#2B3324;
+  --brick:#DF8560; --brick-soft:#3A2820;
+  color-scheme: dark;
+}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.62;
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+  padding-block:0 72px;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:60rem;margin:0 auto}
+*{box-sizing:border-box}
+h1,h2,h3{font-family:var(--serif);text-wrap:balance;margin:0;font-weight:600;line-height:1.2}
+p{margin:0}
+a{color:var(--brick)}
+
+.masthead{padding-block:40px 24px;border-bottom:2px solid var(--ink)}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px}
+.masthead h1{font-size:clamp(2rem,5.6vw,3.1rem);letter-spacing:-.015em}
+.masthead .lede{font-family:var(--serif);font-size:clamp(1.05rem,2.4vw,1.22rem);color:var(--ink-2);max-width:38rem;margin-top:12px}
+.facts{display:flex;flex-wrap:wrap;margin-top:26px;border:1px solid var(--line);border-radius:3px;overflow:hidden;background:var(--surface)}
+.fact{flex:1 1 10rem;min-width:0;padding:12px 16px;border-right:1px solid var(--line)}
+.fact:last-child{border-right:0}
+.fact dt{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-bottom:3px}
+.fact dd{margin:0;font-weight:600;font-size:.97rem;font-variant-numeric:tabular-nums}
+
+nav.sections{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--paper);border-bottom:1px solid var(--line);margin-bottom:40px}
+nav.sections ul{list-style:none;display:flex;gap:4px;margin:0;padding:8px 0;overflow-x:auto;scrollbar-width:thin}
+nav.sections a{display:block;white-space:nowrap;padding:6px 11px;border-radius:2px;font-size:.84rem;font-weight:500;color:var(--ink-2);text-decoration:none}
+nav.sections a:hover{background:var(--moss-soft);color:var(--ink)}
+nav.sections a.on{background:var(--ink);color:var(--paper)}
+
+section{padding-block:8px 52px;scroll-margin-top:84px}
+.shead{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:22px}
+.snum{font-family:var(--mono);font-size:.78rem;color:var(--brick);font-weight:500}
+.shead h2{font-size:clamp(1.35rem,3.2vw,1.8rem)}
+.prose{max-width:40rem;display:flex;flex-direction:column;gap:14px;color:var(--ink-2)}
+.prose strong{color:var(--ink);font-weight:600}
+.pull{border-left:3px solid var(--brick);padding:4px 0 4px 16px;font-family:var(--serif);font-size:1.1rem;color:var(--ink);max-width:36rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:20px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:14px}
+.grid2>*{min-width:0}
+.note{border-left:3px solid var(--moss);background:var(--moss-soft);padding:14px 16px;border-radius:0 3px 3px 0;font-size:.92rem;color:var(--ink)}
+.warn{border-left:3px solid var(--brick);background:var(--brick-soft);padding:14px 16px;border-radius:0 3px 3px 0;font-size:.92rem;color:var(--ink)}
+
+/* adımlar */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:14px}
+.step{min-width:0;border:1px solid var(--line);border-radius:3px;padding:18px;background:var(--surface)}
+.step .n{font-family:var(--serif);font-size:1.9rem;font-weight:700;color:var(--brick);line-height:1}
+.step h3{font-size:1.05rem;margin:8px 0 6px}
+.step p{font-size:.89rem;color:var(--ink-2)}
+
+/* şablon */
+.sheet{background:var(--sheet);border:1px solid var(--line);border-radius:3px;padding:clamp(18px,3.5vw,32px)}
+.item{padding-block:15px;border-bottom:1px dashed var(--line)}
+.item:last-child{border-bottom:0}
+.item-top{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.item-n{font-family:var(--mono);font-size:.76rem;color:var(--brick);font-weight:500;min-width:1.6rem}
+.item-t{font-family:var(--serif);font-size:1.05rem;font-weight:600}
+.limit{font-family:var(--mono);font-size:.66rem;color:var(--ink-3);border:1px solid var(--line);border-radius:999px;padding:2px 7px;white-space:nowrap}
+.item-d{color:var(--ink-2);font-size:.9rem;margin:5px 0 0 calc(1.6rem + 10px)}
+.item-d ul{margin:5px 0 0;padding-left:1.1rem}
+.item-d li{margin-bottom:3px}
+.axis{display:flex;gap:8px;align-items:flex-start;font-size:.88rem;color:var(--ink-2);margin-top:5px}
+.axis .box{font-family:var(--mono);color:var(--ink-3)}
+
+/* tablo */
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:3px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+thead th{font-family:var(--mono);font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);background:var(--surface);border-bottom:1px solid var(--line)}
+tbody tr:last-child td{border-bottom:0}
+td.num,th.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+td.pt{font-family:var(--mono);font-weight:500;text-align:right;white-space:nowrap}
+tfoot td{font-weight:600;border-top:1px solid var(--line);background:var(--surface)}
+
+/* örnek */
+.vs{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:14px}
+.vs>div{min-width:0;border:1px solid var(--line);border-radius:3px;padding:18px;background:var(--surface)}
+.vs .lbl{font-family:var(--mono);font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;margin-bottom:10px}
+.vs .weak .lbl{color:var(--brick)}
+.vs .strong{border-color:var(--moss);background:var(--moss-soft)}
+.vs .strong .lbl{color:var(--moss)}
+.vs p{font-size:.89rem;color:var(--ink-2);margin-bottom:8px}
+.vs p:last-child{margin-bottom:0}
+.vs .q{font-family:var(--serif);font-size:1rem;color:var(--ink);font-weight:600;margin-bottom:8px}
+
+/* sorular */
+.qgroup{margin-bottom:18px}
+.qgroup:last-child{margin-bottom:0}
+.qgroup h3{font-family:var(--mono);font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:var(--brick);font-weight:500;margin-bottom:8px}
+.qgroup ul{margin:0;padding-left:1.15rem;display:flex;flex-direction:column;gap:6px;font-size:.92rem;color:var(--ink-2)}
+
+/* sayaç */
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field label{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+select,textarea{font-family:var(--sans);font-size:.92rem;color:var(--ink);background:var(--sheet);border:1px solid var(--line);border-radius:2px;padding:8px 10px;width:100%;min-width:0}
+textarea{min-height:7.5rem;resize:vertical;line-height:1.55}
+select:focus-visible,textarea:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--brick);outline-offset:2px}
+.counter{display:flex;align-items:baseline;gap:10px;margin-top:10px;flex-wrap:wrap}
+.counter .big{font-family:var(--serif);font-size:1.9rem;font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+.counter .state{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border:1px solid currentColor;border-radius:2px}
+.ok{color:var(--moss)}
+.over{color:var(--brick)}
+
+/* kontrol listesi */
+.check{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:2px}
+.check li{display:flex;gap:11px;align-items:flex-start;padding:7px 0;border-bottom:1px solid var(--line-soft)}
+.check li:last-child{border-bottom:0}
+.check input{width:1.05rem;height:1.05rem;margin-top:.22rem;flex:none;accent-color:var(--moss)}
+.check label{font-size:.92rem;color:var(--ink-2);cursor:pointer}
+.check input:checked + label{color:var(--ink-3);text-decoration:line-through}
+
+footer{border-top:1px solid var(--line);padding-top:18px;font-size:.82rem;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">UEC248 · Yapay Zekâ ile Diyalog, Prompt Mühendisliği ve Eleştirel Düşünme</div>
+  <h1>Fikir Önerisi Rehberi</h1>
+  <p class="lede">Final projesi fikrinizi yazıp elden teslim edeceğiniz ve kapıda kısaca savunacağınız oturumun bütün kuralları. Ödev 3 bu oturumda veriliyor ve aynı gün notlanıyor.</p>
+  <dl class="facts">
+    <div class="fact"><dt>Tarih</dt><dd>4 Kasım 2026, Çarşamba</dd></div>
+    <div class="fact"><dt>Saat</dt><dd>09.00 – 11.20</dd></div>
+    <div class="fact"><dt>Yer</dt><dd>A Blok, A007</dd></div>
+    <div class="fact"><dt>Süre</dt><dd>Takım başına 6 dakika</dd></div>
+  </dl>
+</header>
+
+<nav class="sections">
+  <ul>
+    <li><a href="#nasil" class="on">Nasıl işliyor</a></li>
+    <li><a href="#sablon">Belgenin içeriği</a></li>
+    <li><a href="#ornek">İyi öneri nasıl olur</a></li>
+    <li><a href="#konusma">Kapıdaki konuşma</a></li>
+    <li><a href="#sorular">Size sorulacaklar</a></li>
+    <li><a href="#puan">Puanlama</a></li>
+    <li><a href="#sayac">Kelime sayacı</a></li>
+    <li><a href="#liste">Gelmeden önce</a></li>
+  </ul>
+</nav>
+
+<!-- 1 -->
+<section id="nasil">
+  <div class="shead"><span class="snum">01</span><h2>Nasıl işliyor</h2></div>
+  <div class="prose" style="margin-bottom:20px">
+    <p>Bu hafta sınıfta toplanmıyoruz. En çok üç kişilik takımlar hâlinde ya da tek başınıza katılıyorsunuz. Takımınızla birlikte randevu saatinizde A007'ye geliyor, belgenizi elden teslim ediyor ve altı dakikalık kısa bir konuşma yapıyorsunuz. Puanınızı o konuşmanın sonunda öğreniyorsunuz.</p>
+    <p class="pull">Fikri onaylanmayan takım final projesine başlamış sayılmaz. Bu oturum projenin ön koşulu.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="n">1</div>
+      <h3>Yazın</h3>
+      <p>On iki başlığı sırasıyla doldurun. Doldurulmuş belge en çok iki sayfa. Kelime sınırlarına uyun — aşan belge okunmadan geri verilir.</p>
+    </div>
+    <div class="step">
+      <div class="n">2</div>
+      <h3>Getirin</h3>
+      <p>Çıktısını alın ya da okunaklı biçimde elle yazın. Dijital teslim yok: e-posta, Blackboard ve mesajla belge kabul edilmiyor. Tek nüsha yeterli, kopyası sizde kalsın.</p>
+    </div>
+    <div class="step">
+      <div class="n">3</div>
+      <h3>Savunun</h3>
+      <p>Fikrinizi belgeye bakmadan tek cümleyle anlatın, iki soruya cevap verin. Takımın bütün üyeleri birlikte gelir.</p>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-top:16px">
+    <div class="note"><strong>Yapay zekâ kullanmak serbest.</strong> Zaten dersin konusu. Serbest olmayan tek şey, kullandığınız aracı ve reddettiğiniz öneriyi beyan etmemek. Beyan bölümü boş olan belge değerlendirmeye alınmaz; takım aynı gün yeniden randevu alır.</div>
+    <div class="warn"><strong>Randevu saatiniz Blackboard duyurusunda.</strong> Beş dakika önce kapıda olun. 11.30'dan sonra belge alınmaz; randevusuna gelmeyen ve mazeret bildirmeyen takım bu ödevden 0 alır.</div>
+  </div>
+</section>
+
+<!-- 2 -->
+<section id="sablon">
+  <div class="shead"><span class="snum">02</span><h2>Belgenin içeriği</h2></div>
+  <div class="prose" style="margin-bottom:18px">
+    <p>Blackboard'daki Word şablonunu doldurmanız en kolayı. Elle yazacaksanız bu başlıkları aynı sırayla kullanın.</p>
+  </div>
+
+  <div class="sheet">
+    <div class="item">
+      <div class="item-top"><span class="item-n">1</span><span class="item-t">Künye</span></div>
+      <div class="item-d">Takım adı. Her üye için ad soyad, öğrenci numarası, bölüm, imza. İletişim kurulacak bir kişi ve randevu saatiniz.</div>
+    </div>
+    <div class="item">
+      <div class="item-top"><span class="item-n">2</span><span class="item-t">Proje adı</span><span class="limit">en çok 10 kelime</span></div>
+      <div class="item-d">Ne yaptığınızı söyleyen bir ad. "Yapay Zekâ Projesi" bir ad değildir.</div>
+    </div>
+    <div class="item">
+      <div class="item-top"><span class="item-n">3</span><span class="item-t">Tek cümle</span><span class="limit">1 cümle</span></div>
+      <div class="item-d">Şu kalıbı doldurun: <em>"Bu proje, ……… için ……… yapar."</em> Kalıba sığmıyorsa fikir henüz netleşmemiştir; sığdırana kadar uğraşın.</div>
+    </div>
+    <div class="item">
+      <div class="item-top"><span class="item-n">4</span><span class="item-t">Problem</span><span class="limit">en çok 80 kelime</span></div>
+      <div class="item-d">Kimin, hangi somut sorunu? Bu sorunu nereden biliyorsunuz: kendiniz mi yaşadınız, birine mi sordunuz, bir kaynakta mı gördünüz? Kaynağı yazın.</div>
+    </div>
+    <div class="item">
+      <div class="item-top"><span class="item-n">5</span><span class="item-t">Neden yapay zekâ</span><span class="limit">en çok 60 kelime</span></div>
+      <div class="item-d">Aynı işi yapay zekâsız yapsaydınız nasıl yapardınız? Yapay zekâ neyi değiştiriyor: hızı mı, ölçeği mi, kaliteyi mi? "Hiçbirini" de geçerli bir cevap — ama o zaman projeyi yeniden düşünün.</div>
+    </div>
+    <div class="item">
+      <div class="item-top"><span class="item-n">6</span><span class="item-t">Dönem sonunda elinizde ne olacak</span><span class="limit">en çok 60 kelime</span></div>
+      <div class="item-d">Elle tutulur bir çıktı: çalışan bir prototip, bir karşılaştırma çalışması, bir denetim raporu, bir veri kümesi, bir tasarım. <strong>"Araştıracağız" bir çıktı değildir.</strong></div>
+    </div>
+    <div class="item">
+      <div class="item-top"><span class="item-n">7</span><span class="item-t">Dersin hangi eksenine bağlanıyor</span><span class="limit">en az 1 kutu + 2–3 cümle</span></div>
+      <div class="item-d" style="margin-top:8px">
+        <div class="axis"><span class="box">☐</span><span><strong>Sanı ve hakikat.</strong> Akıcı çıktı ile doğru çıktı arasındaki fark. <span style="color:var(--ink-3)">(Hafta 1)</span></span></div>
+        <div class="axis"><span class="box">☐</span><span><strong>Denetlenebilirlik.</strong> Yöntem cevabı doğru yapmaz, denetlenebilir yapar. <span style="color:var(--ink-3)">(Hafta 2)</span></span></div>
+        <div class="axis"><span class="box">☐</span><span><strong>Anlam ve kural.</strong> Belirtim davranışı belirlemez, pratik belirler. <span style="color:var(--ink-3)">(Hafta 3)</span></span></div>
+        <div class="axis"><span class="box">☐</span><span><strong>Ekosistem.</strong> Teknoloji tek bir dâhinin değil, bir ekosistemin ürünüdür. <span style="color:var(--ink-3)">(Hafta 4)</span></span></div>
+        <div class="axis"><span class="box">☐</span><span><strong>Sorumluluk.</strong> Bir çıktı yanlış olduğunda sorumluluk nerede durur. <span style="color:var(--ink-3)">(Hafta 5)</span></span></div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-top"><span class="item-n">8</span><span class="item-t">Doğrulama planı</span><span class="limit">3 kısa cevap</span></div>
+      <div class="item-d">
+        <ul>
+          <li><strong>Kritik iddia:</strong> Projeniz doğruysa doğru olması gereken tek cümle nedir?</li>
+          <li><strong>Sınama:</strong> Bu iddiayı hangi ölçüt, veri, test ya da kaynakla sınayacaksınız?</li>
+          <li><strong>Çürütme:</strong> Hangi sonucu görürseniz "bu fikir yürümüyor" diyeceksiniz?</li>
+        </ul>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-top"><span class="item-n">9</span><span class="item-t">Risk ve etik</span><span class="limit">3 kısa cevap</span></div>
+      <div class="item-d">
+        <ul>
+          <li>Kişisel veri kullanıyor musunuz? Evet ise hangi veri, kimden, nerede saklanacak, ne zaman silinecek (KVKK)?</li>
+          <li>Kullandığınız veri, model, kod ve içeriğin lisans ve kullanım şartlarını kontrol ettiniz mi?</li>
+          <li>Bu proje kötüye kullanılsa kime, nasıl zarar verir? Azaltmak için ne yapacaksınız?</li>
+        </ul>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-top"><span class="item-n">10</span><span class="item-t">İş bölümü ve üç haftalık plan</span><span class="limit">tablo</span></div>
+      <div class="item-d">Her proje haftası için bir kilometre taşı ve o işi kimin yapacağı. "Çalışacağız" bir kilometre taşı değildir.</div>
+    </div>
+    <div class="item">
+      <div class="item-top"><span class="item-n">11</span><span class="item-t">Yapay zekâ kullanım beyanı</span><span class="limit">zorunlu</span></div>
+      <div class="item-d">
+        <ul>
+          <li>Hangi aracı, hangi sürümünü, ne için kullandınız?</li>
+          <li>En az bir prompt'unuzu <em>aynen</em> yazın.</li>
+          <li>Modelin önerdiği ama sizin reddettiğiniz bir fikir ve ret gerekçeniz. Hiçbir şey reddetmediyseniz bunu yazın ve nedenini açıklayın.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="item">
+      <div class="item-top"><span class="item-n">12</span><span class="item-t">Kaynaklar ve Plan B</span><span class="limit">en az 2 kaynak + 1 cümle</span></div>
+      <div class="item-d">Kaynak künyesi: yazar veya kurum, başlık, yıl, bağlantı, erişim tarihi. Açılmayan bağlantı kaynak sayılmaz. Plan B: fikir onaylanmazsa hangi alternatif üzerinde çalışırsınız?</div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 -->
+<section id="ornek">
+  <div class="shead"><span class="snum">03</span><h2>İyi öneri nasıl olur</h2></div>
+  <div class="prose" style="margin-bottom:18px">
+    <p>Aynı fikrin iki hâli. Soldaki her dönem onlarca kez geliyor; sağdaki, aynı ilgiyi üç haftada bitebilecek bir işe çevirmiş hâli.</p>
+  </div>
+  <div class="vs">
+    <div class="weak">
+      <div class="lbl">Zayıf öneri</div>
+      <div class="q">"Yapay zekâ ile ders çalışma asistanı"</div>
+      <p><strong>Problem:</strong> Öğrenciler ders çalışırken zorlanıyor. Yapay zekâ bu konuda yardımcı olabilir.</p>
+      <p><strong>Çıktı:</strong> Konuyu araştıracağız ve bir asistan geliştireceğiz.</p>
+      <p><strong>Doğrulama:</strong> Sonuçları değerlendireceğiz.</p>
+      <p style="color:var(--brick)"><strong>Sorun ne:</strong> Kim, hangi ders, hangi zorluk belli değil. Çıktı bir fiil, bir nesne değil. Çürütme ölçütü yok — hiçbir sonuç bu fikri yanlışlayamaz, yani fikir henüz sınanabilir değil.</p>
+    </div>
+    <div class="strong">
+      <div class="lbl">Güçlü öneri</div>
+      <div class="q">"Üretilen sınav sorularının sessiz hata oranı"</div>
+      <p><strong>Problem:</strong> Arkadaşlarımız vize hazırlığında dil modeline çoktan seçmeli soru ürettiriyor. Soruların düzgün göründüğünü ama bazılarının yanlış olduğunu fark ettik; kaçının yanlış olduğunu kimse bilmiyor.</p>
+      <p><strong>Çıktı:</strong> Üç konudan 60 üretilmiş sorunun ders kitabı ve bir ikinci kaynakla denetlendiği bir tablo; hata tipolojisi; iki sayfalık denetim kontrol listesi.</p>
+      <p><strong>Doğrulama:</strong> Kritik iddia, hataların rastgele değil belirli soru tiplerinde toplandığı. Her soru iki bağımsız kaynakla işaretlenecek. Hatalar soru tiplerine eşit dağılırsa iddia çürür ve bunu raporda yazarız.</p>
+      <p style="color:var(--moss)"><strong>Neden güçlü:</strong> Sayılabilir, üç haftada biter, yanlışlanabilir bir iddiası var ve çıktısı başkasının kullanabileceği bir şey.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section id="konusma">
+  <div class="shead"><span class="snum">04</span><h2>Kapıdaki konuşma</h2></div>
+  <div class="prose" style="margin-bottom:18px">
+    <p>Altı dakika, sabit bir sırayla. Sunum hazırlamanıza gerek yok; slayt, poster, demo istenmiyor. Sadece ne yapacağınızı bilin.</p>
+  </div>
+  <div class="scroll">
+    <table>
+      <thead><tr><th class="num">Dakika</th><th>Aşama</th><th>Sizden beklenen</th></tr></thead>
+      <tbody>
+        <tr><td class="num">0:00–1:00</td><td>Tek cümle</td><td>Kime, ne yapacaksınız? Belgeye bakmadan anlatın.</td></tr>
+        <tr><td class="num">1:00–2:30</td><td>Kapsam</td><td>Projenin üç haftada bitip bitmeyeceğini konuşuruz.</td></tr>
+        <tr><td class="num">2:30–3:30</td><td>Doğrulama</td><td>Kritik iddianız ve sizi neyin çürüteceği.</td></tr>
+        <tr><td class="num">3:30–4:30</td><td>Beyan</td><td>Yapay zekâya ne sordunuz, neyi reddettiniz.</td></tr>
+        <tr><td class="num">4:30–6:00</td><td>Karar ve puan</td><td>Üç karardan biri, gerekçesi ve puanınız.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="grid2" style="margin-top:16px">
+    <div class="card">
+      <div class="eyebrow" style="margin-bottom:10px">Takımın tamamı gelir</div>
+      <p style="font-size:.9rem;color:var(--ink-2)">Bir üye gelemiyorsa mazeretini önceden yazın. Belgeyi diğerleri teslim eder; gelmeyen üye sözlü puanını ayrı bir randevuda alır. Sözlü puan kişiye, belge puanı takıma aittir.</p>
+    </div>
+    <div class="card">
+      <div class="eyebrow" style="margin-bottom:10px">Takımınız yoksa</div>
+      <p style="font-size:.9rem;color:var(--ink-2)">Tek başınıza da gelebilirsiniz. O zaman kapsamı küçültün: tek kişilik bir proje, üç kişilik bir projenin üçte biri kadar iş olmalı. Bunu belgede yazın.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section id="sorular">
+  <div class="shead"><span class="snum">05</span><h2>Size sorulacaklar</h2></div>
+  <div class="prose" style="margin-bottom:18px">
+    <p>Sorular bu havuzdan geliyor; her takıma iki ya da üç tanesi soruluyor. Listeyi önceden vermek konuşmayı kolaylaştırmaz, sadece adil yapar: cevapların ezberlenecek bir hâli yok. "Sizi ne çürütür?" sorusunun cevabı, çürütülebilir bir iddianız varsa zaten belgenizde yazılıdır.</p>
+  </div>
+  <div class="card">
+    <div class="qgroup">
+      <h3>Kapsam</h3>
+      <ul>
+        <li>Bunu üç haftada bitirecek misiniz? Neyi çıkarırsanız bitirirsiniz?</li>
+        <li>Bu fikrin en küçük çalışan hâli nedir? Onu yapsanız ne kaybedersiniz?</li>
+        <li>Takımdaki herkes bu hafta ne yapacak? Tek tek söyleyin.</li>
+      </ul>
+    </div>
+    <div class="qgroup">
+      <h3>Gerekçe</h3>
+      <ul>
+        <li>Bunu yapay zekâsız nasıl yapardınız? Ne kadar sürerdi?</li>
+        <li>Yapay zekâ burada neyi değiştiriyor: hızı mı, ölçeği mi, kaliteyi mi?</li>
+        <li>Bu problemi zaten çözen bir araç var mı? Baktınız mı? Neden yetmiyor?</li>
+      </ul>
+    </div>
+    <div class="qgroup">
+      <h3>Doğrulama</h3>
+      <ul>
+        <li>Projenizdeki en kritik iddia hangisi? Tek cümle.</li>
+        <li>Hangi sonucu görürseniz bu fikirden vazgeçersiniz?</li>
+        <li>Çıktınızın doğru olduğunu nasıl bileceksiniz? Kime göre doğru?</li>
+        <li>Ölçütünüz ne? Bir sayı verin.</li>
+      </ul>
+    </div>
+    <div class="qgroup">
+      <h3>Beyan</h3>
+      <ul>
+        <li>Bu belgeyi yazarken yapay zekâya ne sordunuz? Prompt'unuzu okuyun.</li>
+        <li>Modelin önerip sizin reddettiğiniz bir şey var mı? Neden reddettiniz?</li>
+        <li>Belgede sizin yazmadığınız bir cümle var mı? Hangisi?</li>
+      </ul>
+    </div>
+    <div class="qgroup">
+      <h3>Etik</h3>
+      <ul>
+        <li>Kişisel veri var mı? Kimin verisi, nerede duracak, ne zaman silinecek?</li>
+        <li>Bu proje yanlış çalışırsa kim zarar görür?</li>
+        <li>Çıktınız bir yerde kullanılıp yanlış çıkarsa sorumlu kim olur?</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section id="puan">
+  <div class="shead"><span class="snum">06</span><h2>Puanlama</h2></div>
+  <div class="prose" style="margin-bottom:18px">
+    <p>On puan üzerinden, altı ölçüt. İkisi sözlü savunmayı ölçüyor: belge tek başına tam puan almıyor.</p>
+  </div>
+  <div class="grid2">
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Ölçüt</th><th class="pt">Puan</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Problem ve kapsam.</strong> Somut, sınırlı, üç haftada bitebilir.</td><td class="pt">2</td></tr>
+          <tr><td><strong>Gerekçe ve çıktı.</strong> Yapay zekâsız alternatif düşünülmüş; dönem sonu çıktısı elle tutulur.</td><td class="pt">2</td></tr>
+          <tr><td><strong>Doğrulama planı.</strong> Sınanabilir bir iddia ve gerçek bir çürütme ölçütü var.</td><td class="pt">2</td></tr>
+          <tr><td><strong>Risk, etik, KVKK.</strong> Zarar senaryosu düşünülmüş, veri sorusu cevaplanmış.</td><td class="pt">1</td></tr>
+          <tr><td><strong>Beyan, kaynak, düzen.</strong> Prompt örneği var, reddedilen öneri yazılmış, kaynaklar açılıyor.</td><td class="pt">1</td></tr>
+          <tr><td><strong>Sözlü savunma.</strong> Kendi cümlelerinizle anlatmanız, soruya cevap vermeniz, bilmediğinizde bilmediğinizi söylemeniz.</td><td class="pt">2</td></tr>
+        </tbody>
+        <tfoot><tr><td>Toplam</td><td class="pt">10</td></tr></tfoot>
+      </table>
+    </div>
+    <div>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Karar</th><th>Sonrası</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Onay</strong></td><td>Projeye başlarsınız.</td></tr>
+            <tr><td><strong>Koşullu onay</strong></td><td>Söylediğim maddeleri düzeltip 11 Kasım 2026'ya kadar gönderirsiniz.</td></tr>
+            <tr><td><strong>Yeniden</strong></td><td>Yeni bir fikirle 11 Kasım 2026'da ikinci randevuya gelirsiniz.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="warn" style="margin-top:14px"><strong>Belgedeki her hata sizindir.</strong> "Model öyle yazdı" bir gerekçe değildir. Yapay zekâya yazdırdığınız bir cümleyi savunamıyorsanız, o cümle belgede durmamalı.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 -->
+<section id="sayac">
+  <div class="shead"><span class="snum">07</span><h2>Kelime sayacı</h2></div>
+  <div class="prose" style="margin-bottom:18px">
+    <p>Sınırı aşan belge okunmadan geri veriliyor. Metninizi buraya yapıştırıp kontrol edin — yazdıklarınız hiçbir yere gönderilmiyor, sayfadan çıkınca siliniyor.</p>
+  </div>
+  <div class="card">
+    <div class="field" style="max-width:22rem;margin-bottom:12px">
+      <label for="bolum">Bölüm</label>
+      <select id="bolum">
+        <option value="10">2. Proje adı — en çok 10 kelime</option>
+        <option value="80" selected>4. Problem — en çok 80 kelime</option>
+        <option value="60">5. Neden yapay zekâ — en çok 60 kelime</option>
+        <option value="60">6. Çıktı — en çok 60 kelime</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="metin">Metniniz</label>
+      <textarea id="metin" placeholder="Bölümün metnini buraya yapıştırın."></textarea>
+    </div>
+    <div class="counter">
+      <span class="big"><span id="sayi">0</span> <span style="font-size:1rem;color:var(--ink-3)">/ <span id="sinir">80</span> kelime</span></span>
+      <span class="state ok" id="durum">Sınır içinde</span>
+    </div>
+  </div>
+</section>
+
+<!-- 8 -->
+<section id="liste">
+  <div class="shead"><span class="snum">08</span><h2>Gelmeden önce</h2></div>
+  <div class="prose" style="margin-bottom:18px">
+    <p>İşaretlerinizi bu tarayıcı hatırlar; başka bir cihazda açarsanız liste boş gelir.</p>
+  </div>
+  <div class="card">
+    <ul class="check" id="kontrol">
+      <li><input type="checkbox" id="k1"><label for="k1">On iki başlığın hepsi dolu, sırası değişmemiş.</label></li>
+      <li><input type="checkbox" id="k2">    <label for="k2">Doldurulmuş belge en çok iki sayfa.</label></li>
+      <li><input type="checkbox" id="k3"><label for="k3">Kelime sınırlarını kontrol ettim.</label></li>
+      <li><input type="checkbox" id="k4"><label for="k4">Tek cümle kalıbı gerçekten tek cümle: "Bu proje, … için … yapar."</label></li>
+      <li><input type="checkbox" id="k5"><label for="k5">Çıktı bir nesne, bir fiil değil. "Araştıracağız" yazmıyor.</label></li>
+      <li><input type="checkbox" id="k6"><label for="k6">Çürütme ölçütü yazılı: hangi sonuç fikri yanlışlar, belgede duruyor.</label></li>
+      <li><input type="checkbox" id="k7"><label for="k7">Yapay zekâ beyanı dolu: araç, bir prompt örneği, reddettiğim öneri ve gerekçesi.</label></li>
+      <li><input type="checkbox" id="k8"><label for="k8">İki kaynağın bağlantısını açıp denedim, ikisi de açılıyor.</label></li>
+      <li><input type="checkbox" id="k9"><label for="k9">Belgedeki her cümleyi savunabiliyorum; başkasının yazdığı cümle kalmadı.</label></li>
+      <li><input type="checkbox" id="k10"><label for="k10">Çıktısını aldım, imzalar atıldı, Plan B yazıldı.</label></li>
+      <li><input type="checkbox" id="k11"><label for="k11">Randevu saatimi Blackboard duyurusundan not ettim; takımın tamamına söyledim.</label></li>
+    </ul>
+  </div>
+  <div class="note" style="margin-top:16px">Hazırlanırken takıldığınız bir yer olursa ders saatinde ya da e-postayla sorun. Yanlış yoldan iyi yazılmış bir belge yerine, doğru soruyu sormuş yarım bir belge getirmek daha iyi.</div>
+</section>
+
+<footer>
+  <span>UEC248 · 2026–2027 Güz · Dr. Öğr. Üyesi Ersin Gündeğer</span>
+  <span>Ödev 3 · 4 Kasım 2026, A Blok A007</span>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var $ = function(s){ return document.querySelector(s); };
+  var $$ = function(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); };
+
+  /* --- kelime sayacı --- */
+  var bolum = $("#bolum"), metin = $("#metin"), sayi = $("#sayi"), sinir = $("#sinir"), durum = $("#durum");
+  function say(){
+    var lim = parseInt(bolum.value, 10);
+    var t = metin.value.trim();
+    var n = t ? t.split(/\s+/).length : 0;
+    sayi.textContent = n;
+    sinir.textContent = lim;
+    if(n > lim){
+      durum.className = "state over";
+      durum.textContent = (n - lim) + " kelime fazla";
+    } else {
+      durum.className = "state ok";
+      durum.textContent = n === 0 ? "Sınır: " + lim : (lim - n) + " kelime kaldı";
+    }
+  }
+  bolum.addEventListener("change", say);
+  metin.addEventListener("input", say);
+  say();
+
+  /* --- kontrol listesi (yalnızca bu tarayıcıda) --- */
+  var KEY = "uec248_h6_kontrol";
+  var kayit = {};
+  try{
+    var ham = window.localStorage.getItem(KEY);
+    if(ham) kayit = JSON.parse(ham) || {};
+  }catch(e){ kayit = {}; }
+
+  $$("#kontrol input[type=checkbox]").forEach(function(cb){
+    if(kayit[cb.id]) cb.checked = true;
+    cb.addEventListener("change", function(){
+      kayit[cb.id] = cb.checked;
+      try{ window.localStorage.setItem(KEY, JSON.stringify(kayit)); }catch(e){}
+    });
+  });
+
+  /* --- gezinme --- */
+  var links = $$("nav.sections a");
+  var secs = links.map(function(a){ return document.getElementById(a.getAttribute("href").slice(1)); });
+  if("IntersectionObserver" in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var i = secs.indexOf(e.target);
+        if(i < 0) return;
+        links.forEach(function(l){ l.classList.remove("on"); });
+        links[i].classList.add("on");
+      });
+    }, { rootMargin: "-90px 0px -70% 0px", threshold: 0 });
+    secs.forEach(function(s){ if(s) obs.observe(s); });
+  }
+})();
+</script>
+
+</body>
+</html>
